@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Blog</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Welcome to My Blog</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <main class="main-content">
+        <article>
+            <h2>Image Clicker</h2>
+            <img id="myImage" src="https://i.ibb.co/zhkqSQQ/image.png" alt="Image 1">
+            <p>Click on the image or use the left and right arrow keys to navigate between images.</p>
+        </article>
+    </main>
+
+    <aside class="sidebar">
+        <!-- Add sidebar content if needed -->
+    </aside>
+</div>
+
+<footer>
+    <p>&copy; 2024 My Blog. All rights reserved.</p>
+</footer>
+
+<script>
+    var image = document.getElementById('myImage');
+    var images = [
+        'https://i.ibb.co/zhkqSQQ/image.png',
+        'https://i.ibb.co/10y54G8/1.png',
+        'https://i.ibb.co/JQpXppp/2.png',
+        'https://i.ibb.co/tPz75Ty/3.png'
+    ];
+    var currentIndex = 0;
+
+    function changeImage(index) {
+        currentIndex = index;
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+        image.src = images[currentIndex];
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowLeft') {
+            changeImage(currentIndex - 1);
+        } else if (event.key === 'ArrowRight') {
+            changeImage(currentIndex + 1);
+        }
+    });
+</script>
+
+</body>
+</html>
